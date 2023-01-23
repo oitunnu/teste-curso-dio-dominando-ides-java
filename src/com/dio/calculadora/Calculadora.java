@@ -8,10 +8,10 @@ import java.util.Scanner;
  * It accepts integer as well as float
  * 
  * @author Omotayo Itunnu Yussuf
- * @version 1.0
+ * @version 1.1
  */
 
-public class Calculadora {
+public class Calculadora implements MathematicalOperation{
 
 	public static void main(String[] args) {
 		Scanner scan  = new Scanner(System.in);
@@ -23,7 +23,12 @@ public class Calculadora {
 		a = scan.nextInt();
 		System.out.println("Digite o segundo valor: ");
 		b = scan.nextInt();
+
+		// create object to use methods in a static class	
+		Calculadora calc = new Calculadora();
+		calc.add(a, b);
 		
+		/* version 1.0
 		//the operations
 		double addition = add(a, b);
 		double subtraction = subtract(a, b);
@@ -34,7 +39,7 @@ public class Calculadora {
 		System.out.println("adicao " + addition);
 		System.out.println("subtracao " + subtraction);
 		System.out.println("divisao " + division);
-		System.out.println("multiplicacao " + multiplication);
+		System.out.println("multiplicacao " + multiplication);*/
 		scan.close();
 		
 	}
@@ -44,19 +49,25 @@ public class Calculadora {
  * @param b the second number
  * @return the addition of the two numbers given
  */
+/* version 1.0
 	public static double add(double a, double b) {
 		return a + b;
 	}
-	
+	*/
+	@Override
+	public void add(double a, double b) {
+		System.out.println("Addition: " + (a + b));
+	}
 /**
  * This method subtracts two numbers
  * @param a the first number
  * @param b the second number
  * @return the result of the subtraction of (a - b)
  */
-	public static double subtract(double a, double b) {
-		return a - b;
-	}
+	@Override
+	public void subtract(double a, double b) {
+		System.out.println("Subtraction: " + (a - b));
+}
 
 /**
  * This method divide one number by another
@@ -64,9 +75,10 @@ public class Calculadora {
  * @param b the second number
  * @return the division of the two numbers given as in (a/b)
  */
-	public static double divide(double a, double b) {
-		return a / b;
-	}
+	@Override
+	public void divide(double a, double b) {
+		System.out.println("Division: " + (a / b));
+}
 
 /**
  * This method multiply two numbers
@@ -74,7 +86,8 @@ public class Calculadora {
  * @param b the second number
  * @return the result of the multiplication of the two numbers given
  */
-	public static double multiply(double a, double b) {
-		return a * b;
+	@Override
+	public void multiply(double a, double b) {
+		System.out.println("Multiplication: " + (a * b));
 	}
 }
