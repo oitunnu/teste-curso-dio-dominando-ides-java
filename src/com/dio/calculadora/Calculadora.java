@@ -24,7 +24,7 @@ public class Calculadora implements MathematicalOperation{
 		System.out.println("Digite o segundo valor: ");
 		b = scan.nextInt();
 
-		// create object to use methods in a static class	
+		// create object to use non-static methods in a static context	
 		Calculadora calc = new Calculadora();
 		calc.add(a, b);
 		
