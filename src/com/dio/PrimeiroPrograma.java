@@ -1,5 +1,6 @@
 package com.dio;
 
+import com.dio.model.Car;
 import com.dio.model.Gato;
 
 public class PrimeiroPrograma {
@@ -8,6 +9,9 @@ public class PrimeiroPrograma {
 		
 		Gato gato = new Gato();
 		Livros livros = new Livros("A arte", 315);
+		Car car1 = new Car();
+
+		car1.setAno(1999);
 
 		System.out.println(gato);
 		System.out.println(livros);
