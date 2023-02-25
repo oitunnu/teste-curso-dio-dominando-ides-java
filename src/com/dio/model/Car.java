@@ -3,26 +3,29 @@ package com.dio.model;
 import java.util.Objects;
 
 public class Car {
-
+	// attributes
 	private String fabricante;
 	private String modelo;
 	private Integer ano;
 	private String configuracao;
 	private String propulsao;
 	private String porte;
+	private Integer fuelCapacity;
 
-	public Car() {
+	public Car() {   // Constructor
 	}
 
-	public Car(String fabricante, String modelo, Integer ano, String configuracao, String propulsao, String porte) {
+	public Car(String fabricante, String modelo, Integer ano, String configuracao, String propulsao, String porte, Integer fuelCapacity) {
 		this.fabricante = fabricante;
 		this.modelo = modelo;
 		this.ano = ano;
 		this.configuracao = configuracao;
 		this.propulsao = propulsao;
 		this.porte = porte;
+		this.fuelCapacity = fuelCapacity;
 	}
 
+	// create methods for each attribute
 	public String getFabricante() {
 		return fabricante;
 	}
@@ -71,9 +74,18 @@ public class Car {
 		this.porte = porte;
 	}
 
+	public Integer getFuelCapacity() {
+		return ano;
+	}
+
+	public void setFuelCapacity(Integer fuelCapacity) {
+		this.fuelCapacity = fuelCapacity;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(ano, configuracao, fabricante, modelo, porte, propulsao);
+		return Objects.hash(ano, configuracao, fabricante, 
+		fuelCapacity, modelo, porte, propulsao);
 	}
 
 	@Override
@@ -86,16 +98,23 @@ public class Car {
 			return false;
 		Car other = (Car) obj;
 		return Objects.equals(ano, other.ano) && Objects.equals(configuracao, other.configuracao)
-				&& Objects.equals(fabricante, other.fabricante) && Objects.equals(modelo, other.modelo)
+				&& Objects.equals(fabricante, other.fabricante) && Objects.equals(fuelCapacity, other.fuelCapacity) && Objects.equals(modelo, other.modelo)
 				&& Objects.equals(porte, other.porte) && Objects.equals(propulsao, other.propulsao);
 	}
 
 	@Override
 	public String toString() {
 		return "Car [fabricante=" + fabricante + ", modelo=" + modelo + ", ano=" + ano + ", configuracao="
-				+ configuracao + ", propulsao=" + propulsao + ", porte=" + porte + "]";
+				+ configuracao + ", propulsao=" + propulsao + ", porte=" + porte + ", fuelCapacity=" + fuelCapacity + "]";
 	}
 	
-	
+	/*
+	 * void finalize() {   // destructor
+	 * }
+	 */
+
+	double totalTankPrice(double fuelPrice) {
+		return fuelCapacity * fuelPrice;
+	}
 
 }
